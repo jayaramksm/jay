@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
+import PrimarySearchAppBar from './header';
+import Home from './home';
+import Navbar from './nav';
 class Getmethode extends Component {
     state = {  
         resdata:[]
     }
     componentDidMount(){
-        // var http = XMLHttpRequest()
-        // http.open("GET","https://jsonplaceholder.typicode.com/posts")
-        // http.send();
-        // http.onload = function(){
-        //     var res = http.Responce
-        //     console.log(res)
-        //     this.setState({
-        //                 resdata:res
-        //             })
-        // }
-        // http.onerror = function(){
-        //     alert("Loading error")
-        // }
+       
         axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(res=>{
             // console.log(res)
@@ -28,6 +20,7 @@ class Getmethode extends Component {
            
         })
         .catch(error=>{
+            alert("Network error")
             console.log(error)
         })
        
@@ -48,7 +41,10 @@ class Getmethode extends Component {
                 {res.body}
             </div>
             <div className="card-footer text-right">
-                <button className="btn btn-primary texy-white"> <Link className="text-white" to={'/post/'+res.id} >Read more..</Link></button>
+            <Button  variant="contained" >
+  <Link className="text-white" to={'/post/'+res.id} >Read more..</Link>
+</Button>
+<Button className="ml-2" variant="contained" color="secondary"> <Link className="text-white" to={'/post/'+res.id} >Update</Link></Button>
             </div>
             </div>
             </div>
@@ -56,6 +52,8 @@ class Getmethode extends Component {
         })
         return (
             <div>
+                <PrimarySearchAppBar/>
+               <Navbar/>
                 {values}
             </div>
           );

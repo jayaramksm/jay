@@ -1,5 +1,7 @@
- import React, { Component } from 'react';
-import Usesatate from '../hooks/usestatehook';
+import React, { Component } from 'react';
+import PrimarySearchAppBar from './header';
+import Home from './home';
+import Navbar from './nav';
 class LifecycleA extends Component {
   constructor(props){
       super()
@@ -44,6 +46,8 @@ class LifecycleA extends Component {
     render() { 
         console.log("ranger call")
         return (<div>
+            <PrimarySearchAppBar/>
+            <Navbar/>
                 Count : {this.state.count}
                 <button onClick={this.addcount}> add </button>
                 <button onClick={this.removecount}> remove </button>

@@ -1,4 +1,5 @@
-import React from 'react';
+  
+import React, { useContext } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -14,8 +15,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import Carousel from './carousel';
-import Navbar from './nav';
+import{Link} from 'react-router-dom'
+import { SimpleContext } from './login';
+import axios from 'axios'
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -81,8 +84,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
  function PrimarySearchAppBar() {
+
+
+  const NewsContext = useContext(SimpleContext);
+console.log(NewsContext )
   const classes = useStyles();
+
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -117,8 +130,8 @@ const useStyles = makeStyles((theme) => ({
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <Link   to={'/singleuser/'+2} ><MenuItem onClick={handleMenuClose}>Profile</MenuItem></Link>
+      <Link   to="/"> <MenuItem onClick={handleMenuClose}>Log Out</MenuItem></Link>
     </Menu>
   );
 
@@ -163,6 +176,25 @@ const useStyles = makeStyles((theme) => ({
     </Menu>
   );
 
+ const handlechange = (e)=>{
+// console.log(e.target.value)
+// var input = e.target.value
+// var val = null
+// axios.get('http://localhost:4200/employees')
+// .then(res=>{
+//     console.log(res)
+//    val = res.data 
+// })
+// .catch(error=>{
+//     alert("Network error")
+//     console.log(error)
+// })
+// if(val.email== input || val.password==input || val.firstName==input || val.lastName== input){
+//   alert("ok")
+// }
+                 
+  }
+
   return (
     <div className={classes.grow}>
       
@@ -185,6 +217,7 @@ const useStyles = makeStyles((theme) => ({
             </div>
             <InputBase
               placeholder="Search…"
+              onChange={handlechange}
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -215,6 +248,7 @@ const useStyles = makeStyles((theme) => ({
               <AccountCircle />
             </IconButton>
           </div>
+          
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -230,8 +264,12 @@ const useStyles = makeStyles((theme) => ({
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      <Navbar></Navbar>
-      
+     
+      <SimpleContext.Consumer >
+        {val=>{
+          console.log(val)
+        }}
+      </SimpleContext.Consumer>
     </div>
   );
 }
