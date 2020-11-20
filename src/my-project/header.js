@@ -1,4 +1,4 @@
-  
+
 import React, { useContext } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -15,9 +15,10 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import{Link} from 'react-router-dom'
-import { SimpleContext } from './login';
+import { Link } from 'react-router-dom'
+import { SimpleContext } from './home';
 import axios from 'axios'
+import { Idvalue } from './login';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -87,11 +88,11 @@ const useStyles = makeStyles((theme) => ({
 
 
 
- function PrimarySearchAppBar() {
+function PrimarySearchAppBar() {
 
 
   const NewsContext = useContext(SimpleContext);
-console.log(NewsContext )
+  console.log("PrimarySearchAppBar_NewsContext =>", NewsContext)
   const classes = useStyles();
 
 
@@ -130,8 +131,8 @@ console.log(NewsContext )
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link   to={'/singleuser/'+2} ><MenuItem onClick={handleMenuClose}>Profile</MenuItem></Link>
-      <Link   to="/"> <MenuItem onClick={handleMenuClose}>Log Out</MenuItem></Link>
+      <Link to={'/singleuser/' + 2} ><MenuItem onClick={handleMenuClose}>Profile</MenuItem></Link>
+      <Link to="/"> <MenuItem onClick={handleMenuClose}>Log Out</MenuItem></Link>
     </Menu>
   );
 
@@ -176,28 +177,38 @@ console.log(NewsContext )
     </Menu>
   );
 
- const handlechange = (e)=>{
-// console.log(e.target.value)
-// var input = e.target.value
-// var val = null
-// axios.get('http://localhost:4200/employees')
-// .then(res=>{
-//     console.log(res)
-//    val = res.data 
-// })
-// .catch(error=>{
-//     alert("Network error")
-//     console.log(error)
-// })
-// if(val.email== input || val.password==input || val.firstName==input || val.lastName== input){
-//   alert("ok")
-// }
-                 
+  const handlechange = (e) => {
+    // console.log(e.target.value)
+    // var input = e.target.value
+    // var val = null
+    // axios.get('http://localhost:4200/employees')
+    // .then(res=>{
+    //     console.log(res)
+    //    val = res.data 
+    // })
+    // .catch(error=>{
+    //     alert("Network error")
+    //     console.log(error)
+    // })
+    // if(val.email== input || val.password==input || val.firstName==input || val.lastName== input){
+    //   alert("ok")
+    // }
+
   }
 
   return (
     <div className={classes.grow}>
-      
+      {/* {NewsContext} */}
+      <SimpleContext.Consumer >
+        {val => {
+          console.log(val)
+        }}
+      </SimpleContext.Consumer>
+      {/* <Idvalue.Consumer >
+        {val => {
+          console.log(val)
+        }}
+      </Idvalue.Consumer> */}
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -248,7 +259,7 @@ console.log(NewsContext )
               <AccountCircle />
             </IconButton>
           </div>
-          
+
           <div className={classes.sectionMobile}>
             <IconButton
               aria-label="show more"
@@ -264,12 +275,8 @@ console.log(NewsContext )
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-     
-      <SimpleContext.Consumer >
-        {val=>{
-          console.log(val)
-        }}
-      </SimpleContext.Consumer>
+
+
     </div>
   );
 }
