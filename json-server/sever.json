@@ -1,0 +1,95 @@
+{
+  "employees": [
+    {
+      "firstName": "jayayaram",
+      "lastName": "kasim",
+      "email": "jayaramkasim@gmail.com",
+      "password": "156P1a0328@",
+      "confirmPassword": "156P1a0328@",
+      "id": 1
+    },
+    {
+      "firstName": "sitaram",
+      "lastName": "kasim",
+      "email": "sitaram188@gmail.com",
+      "password": "AB123456@a",
+      "confirmPassword": "AB123456@a",
+      "id": 2
+    },
+    {
+      "firstName": "rohith",
+      "lastName": "kranthi",
+      "email": "rohith@gmail.com",
+      "password": "Rohith143@",
+      "confirmPassword": "Rohith143@",
+      "id": 3
+    },
+    {
+      "firstName": "jaya venkata",
+      "lastName": "sitaram",
+      "email": "jayramksm@gmail.com",
+      "password": "7989819129aA@",
+      "confirmPassword": "7989819129aA@",
+      "id": 4
+    },
+    {
+      "firstName": "anil",
+      "lastName": "s",
+      "email": "anil@gmail.com",
+      "password": "123ABCabc@",
+      "confirmPassword": "123ABCabc@",
+      "id": 5
+    }
+  ],
+  "selectbox":[
+    {
+      "name":"india",
+      "state":[
+        {
+        "name":"andhrapradesh",
+        "citys":["amalapuram","kakinada","rajamandry","vizag","vizayawada"]
+      },{
+        "name":"telangana",
+        "citys":["hyderabad","waramgal"]
+      },{
+        "name":"karnataka",
+        "citys":["benguluru","karnataka"]
+      }
+    ]
+      
+    },
+    {
+      "name":"aus",
+      "state":[
+        {
+        "name":"sidni",
+        "citys":["Adelaide ","south_aus","Newcastle ","Canberra ","anu_"]
+      },{
+        "name":"victoria",
+        "citys":["Sydney ","Melbourne "]
+      },{
+        "name":"south_aus",
+        "citys":["Brisbane ","Perth "]
+      }
+    ]
+      
+    },
+    {
+      "name":"america",
+      "state":[
+        {
+        "name":"new_jersey",
+        "citys":["New York","Los Angeles","Chicago","Houston"]
+      },{
+        "name":"alaska",
+        "citys":["Florida","Washington"]
+      },{
+        "name":"florida",
+        "citys":["Colorado","California"]
+      }
+    ]
+      
+    }
+    
+  ]
+}
