@@ -4,6 +4,9 @@ import React from 'react';
 import PrimarySearchAppBar from '../my-project/header';
 import Home from '../my-project/home';
 import Navbar from '../my-project/nav';
+import ComponentA from './componentA';
+import { UserProvider } from './parent';
+import Formss from './secondp';
 
 const AppContext = React.createContext({ colour: 'blue', lang: 'en' });
 
@@ -20,16 +23,8 @@ const MenuItem = () =>
 <div>
     <PrimarySearchAppBar/>
     <Navbar/>
-    {/* <Home/> */}
-    <AppContext.Consumer>
-        { value =>
-            <div>
-                <p>Theme colour: {value.colour}</p>
-                <p>Locale: {value.lang}</p>
-            </div>
-        }
-    </AppContext.Consumer>
-  
+   <ComponentA/>
+  <UserProvider/>
     </div>
 export default Simple;
 

@@ -1,4 +1,8 @@
 import React , {useState} from 'react';
+import DataRecive from '../no_relation_passdata.js/Data_resive';
+import Hook_ParentComponent from '../react_hooks/hook_parentcomponent';
+import MyselectComponent from '../select_box/myselect';
+import Select_boxComponent from '../select_box/select_box';
 import PrimarySearchAppBar from './header';
 import Home from './home';
 import Navbar from './nav';
@@ -47,7 +51,10 @@ return(
     <h2>{JSON.stringify(name)}</h2>
             </div>
         </div>  
-
+        {/* <MyselectComponent/> */}
+        <Hook_ParentComponent/>
+        <Select_boxComponent/>
+        <DataRecive/>
 </div>
 )
 }

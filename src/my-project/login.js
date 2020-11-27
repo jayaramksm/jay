@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PrimarySearchAppBar from './header';
+import Updatevalues from './updateingvalues';
 
 export const Idvalue = React.createContext();
 export function valuepass(vaal) {
@@ -24,8 +25,27 @@ class Login extends Component {
         // console.log(e.target)
         // console.log(e.target.id)
     }
-  
-    
+componentDidUpdate(){
+
+    axios.get('http://localhost:4200/employees')
+    .then(res => {
+        console.log(res.data)
+        res.data.map((values) => {
+            if (this.state.email == values.email && this.state.password == values.password) {
+              
+             
+                this.setState({
+                    id: values.id
+                })
+
+                
+            } 
+        })
+
+    })
+
+}
+
     handleSubmit = (e) => {
         e.preventDefault();
 
@@ -42,7 +62,7 @@ class Login extends Component {
                         this.setState({
                             error: false,
                             // singleuserinfo: [...values],
-                            id: values.id
+                            // id: values.id
                         })
 
                         console.log("value", values)
@@ -67,16 +87,17 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
+            <div><Updatevalues id={this.state.id}></Updatevalues>
+              
                 {console.log("huuhuhuh =>", this.state)}
-
-                {/* <Idvalue.Provider value={this.state.id}>
+{/* 
+                <Idvalue.Provider value={this.state.id}>
                 <PrimarySearchAppBar />
             </Idvalue.Provider> */}
 
                 <div className=" mt-5">
 
-                    <div className="w-25 m-auto sing p-3">
+                    <div className="w-25s m-auto sing p-3">
                         <div className="text-center">
                             <h3 className="mt-1 text-danger">Login</h3>
                         </div>
@@ -93,6 +114,7 @@ class Login extends Component {
                         </form>
                     </div>
                 </div>
+                
             </div>
         )
 

@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom'
 import { SimpleContext } from './home';
 import axios from 'axios'
 import { Idvalue } from './login';
+import Updatevalues from './updateingvalues';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -88,9 +89,9 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-function PrimarySearchAppBar() {
+function PrimarySearchAppBar(props) {
 
-
+console.log("props text",props.id)
   const NewsContext = useContext(SimpleContext);
   console.log("PrimarySearchAppBar_NewsContext =>", NewsContext)
   const classes = useStyles();
@@ -131,7 +132,7 @@ function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <Link to={'/singleuser/' + 2} ><MenuItem onClick={handleMenuClose}>Profile</MenuItem></Link>
+      <Link to={'/singleuser/' + 3} ><MenuItem onClick={handleMenuClose}>Profile</MenuItem></Link>
       <Link to="/"> <MenuItem onClick={handleMenuClose}>Log Out</MenuItem></Link>
     </Menu>
   );
@@ -195,18 +196,23 @@ function PrimarySearchAppBar() {
     // }
 
   }
-
+  // const {fname,lname}=NewsContext
+  // console.log("fname",fname)
   return (
     <div className={classes.grow}>
-      {/* {NewsContext} */}
+      <Updatevalues></Updatevalues>
+
+      {/* <h2>firstName : {NewsContext.fname} lastName:{NewsContext.lname}</h2> */}
+      {console.log("usecontext", NewsContext)}
+      {/* {console.log(props.id)} */}
       <SimpleContext.Consumer >
         {val => {
-          console.log(val)
+          console.log("MULTIPUL vALUES  ",val)
         }}
       </SimpleContext.Consumer>
       {/* <Idvalue.Consumer >
         {val => {
-          console.log(val)
+          console.log("consumer val",val)
         }}
       </Idvalue.Consumer> */}
       <AppBar position="static">

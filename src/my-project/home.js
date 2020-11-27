@@ -8,10 +8,10 @@ export const SimpleContext = React.createContext();
 
 
 function Home() {
-    console.log("retun value",<valuepass/>)
+    console.log("retun value", <valuepass />)
     return (
         <div>
-            <SimpleContext.Provider value="jayaram">
+            <SimpleContext.Provider value={{ fname: "jayaram", lname: "kasim" }}>
                 <PrimarySearchAppBar />
             </SimpleContext.Provider>
             <Navbar />
