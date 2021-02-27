@@ -1,0 +1,28 @@
+.container{
+width: 25%;
+height:700px;
+border: 1px solid gray;
+background-color: grey;
+
+
+}
+.navbar{
+    width: 25%;
+}
+
+#left{
+    width:20%;
+}
+.margin{
+    margin:60px;
+    
+}
+
+.zoom{
+    
+    transition: transform.2s;
+    margin: auto;
+}
+.zoom:hover{
+    transform: scale(1.5);
+}

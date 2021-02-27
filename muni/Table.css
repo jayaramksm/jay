@@ -1,0 +1,17 @@
+table {
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    
+    border: 1px solid #cecfd5;
+    padding: 10px 30px;
+    
+  }
+
+  .httppost{
+    border: 1px solid black;
+    background-color: #d8ebdd;
+    padding: 50px;
+}
+  
